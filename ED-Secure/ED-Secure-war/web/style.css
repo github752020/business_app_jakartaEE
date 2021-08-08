@@ -1,0 +1,50 @@
+/*
+    Created on : 15/02/2020, 11:00:34 PM
+    Author     : elau
+*/
+
+.catalogTable {
+    border-collapse:collapse;
+    border: 2px solid black;
+}
+
+.catalogTableHeader {
+    text-align:center;
+    background:none repeat scroll 0 0 darkgrey;
+    border-bottom: 2px solid black;
+}
+
+.catalogTableOddRow {
+    text-align:center;
+    background:none repeat scroll 0 0 white;
+    border-bottom: 2px solid black;
+}
+
+.catalogTableEvenRow {
+    text-align:center;
+    background:none repeat scroll 0 0 lightgrey;
+    border-bottom: 2px solid black;
+}
+
+.cartTable {
+    border-collapse: collapse;
+    border: 3px solid blue;
+}
+
+.cartTableHeader {
+    text-align:center;
+    background: none repeat scroll 0 0 gray;
+    border-bottom: 2px solid blue;
+}
+
+.cartTableOddRow {
+    text-align:center;
+    background: none repeat scroll 0 0 white;
+    border-bottom: 2px solid blue;
+}
+
+.cartTableEvenRow {
+    text-align:center;
+    background: none repeat scroll 0 0 lightgray;
+    border-bottom: 2px solid blue;
+}

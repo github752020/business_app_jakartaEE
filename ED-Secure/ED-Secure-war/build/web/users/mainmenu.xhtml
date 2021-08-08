@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+    Project     : ED-Secure
+
+    Document    : mainmenu
+    Created on  : Mar 24, 2017
+    Purpose     : show the main menu to users
+    Author      : elau
+
+    Modified on : April 5, 2020
+    Purpose     : Make it work on Apache NetBeans 11.2 and GF 5.1.0
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:event listener="#{myLoginCDIBean.isActive}" type="preRenderView" />
+    <h:head>
+        <title>Secure Company - EMS - Main Menu</title>
+    </h:head>
+    <h:body>
+
+        <h1>
+            <h:outputText value="SECURE Company Ltd"/>
+        </h1>
+
+        <h2>
+            <h:outputText value="EMS Employee Management System"/>
+        </h2>
+
+        <h2>
+            <h:outputText value="Main Menu"/>
+        </h2>
+
+        <h2>
+            <h:outputText value="Hello, #{request.remoteUser}"/>
+            
+        </h2>
+        <h:form>
+            <!--h:inputHidden id="empid" value="#{request.getRemoteUser()}"/-->
+            <ol>
+
+                <li>
+                    <h:commandLink action="#{emsEmployeeCDIBean.setMyDetailsForChange()}" value="Change my details"/>
+                    <!--h:outputLink value="changeEmployeeDetails.xhtml">
+                        Change my details
+                    </h:outputLink-->
+                </li>
+
+                <li>
+                    <!--h:commandLink action="#{emsEmployeeCDIBean.changeEmployeePassword()}" value="Change my password"/-->
+                    <h:outputLink value="changeEmployeePassword.xhtml">
+                        Get Order by ID
+                    </h:outputLink>
+                </li>
+                
+                <li>
+                    <!--h:commandLink action="#{emsEmployeeCDIBean.changeEmployeePassword()}" value="Change my password"/-->
+                    <h:outputLink value="changeEmployeePassword.xhtml">
+                        Update Order by ID
+                    </h:outputLink>
+                </li>
+
+                <li>
+                    <h:commandLink action="#{emsEmployeeCDIBean.displayMyDetails()}" value="Review my details"/>
+                    <!--h:outputLink value="displayEmployeeDetails.xhtml">
+                        Review my details
+                    </h:outputLink-->
+                </li>
+            </ol>
+
+
+            Click <h:commandButton value="Logout" action="#{myLoginCDIBean.logoutResult()}"/>           
+        </h:form>
+
+    </h:body>
+</html>
+

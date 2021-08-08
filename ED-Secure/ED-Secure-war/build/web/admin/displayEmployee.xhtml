@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+    Project     : ED-Secure
+
+    Document    : displayEmployee
+    Created on  : Mar 24, 2017
+    Purpose     : allow a user to display an employee from the database
+    Author      : elau
+
+    Modified on : April 5, 2020
+    Purpose     : Make it work on Apache NetBeans 11.2 and GF 5.1.0
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:event listener="#{myLoginCDIBean.isActive}" type="preRenderView" />
+    <h:head>
+        <title>Display an Employee's Details</title>
+    </h:head>
+    <h:body>
+
+        <h2>Search for an employee</h2>
+        
+        <h3>Please enter the employee id</h3>
+
+        <h:form>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Employee Id:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="Employee Id" id="empid"
+                                         required="true" 
+                                         requiredMessage="Employee id must not be blank"
+                                         maxlength="6" 
+                                         value="#{emsEmployeeCDIBean.empid}">
+                                <f:validateLength minimum="6" maximum="6"/>
+                            </h:inputText>
+                        </td>
+                        <td>
+                            <h:message for="empid" style="color:red"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p></p>
+
+            <h:commandButton id="submit" value="Submit" 
+                             action="#{emsEmployeeCDIBean.displayEmployee()}"/>
+
+        </h:form>
+    </h:body>
+</html>
+
+
+

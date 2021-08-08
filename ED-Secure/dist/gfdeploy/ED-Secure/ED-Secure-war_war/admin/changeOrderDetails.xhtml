@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+    Project     : ED-Secure
+
+    Document    : changeEmployeeDetails
+    Created on  : Mar 24, 2017
+    Purpose     : allow a user to change an employee's detail (except password) to the database
+    Author      : elau
+
+    Modified on : April 5, 2020
+    Purpose     : Make it work on Apache NetBeans 11.2 and GF 5.1.0
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Change Order Details</title>
+    </h:head>
+    <h:body>
+
+        <h2>Change Order Details Page</h2>
+
+        <h3>Please update the details of order with ID
+            <h:outputText value="#{allorderCDIBean.orid}"/>
+        </h3>
+
+        <p></p>
+
+        <h:form>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Order ID:"/>
+                        </td>
+                        <td>
+                            <h:outputText value="#{allorderCDIBean.orid}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Customer ID:"/>
+                        </td>
+                        <td>
+                            <h:outputText value="#{allorderCDIBean.cusid}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Order Date:"/>
+                        </td>
+                        <td>
+                            <h:outputText value="#{allorderCDIBean.ordate}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Delivery Date:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="dedate" id="dedate"
+                                         maxlength="25"
+                                         required="true" 
+                                         requiredMessage="Delivery date must not be blank"
+                                         value="#{allorderCDIBean.dedate}">
+                                <f:convertDateTime pattern="yyyy-MM-dd"/>
+                            </h:inputText>
+                        </td>
+                        <td>
+                            <h:message for="dedate" style="color:red"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Quantity:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="quantity" maxlength="30" id="quantity"
+                                         required="true" requiredMessage="Quantity must not be blank"
+                                         value="#{allorderCDIBean.quantity}">
+                                <f:validateDoubleRange minimum = "2" maximum = "1000" />
+                            </h:inputText>
+                        </td>
+                        <td>
+                            <h:message for="quantity" style="color:red"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Total:"/>
+                        </td>
+                        <td>
+                            <h:outputText value="#{allorderCDIBean.total}"/>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Paid:" for="paid"/> 
+                        </td>
+                        <td>
+                            <h:selectBooleanCheckbox id="paid" 
+                                                     required="false" 
+                                                     value="#{allorderCDIBean.paid}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Delivered:" for="delivered"/> 
+                        </td>
+                        <td>
+                            <h:selectBooleanCheckbox id="delivered" 
+                                                     required="false" 
+                                                     value="#{allorderCDIBean.delivered}" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p></p>
+
+            <h:commandButton id="submit" value="Submit" 
+                             action="#{allorderCDIBean.changeOrder()}"/>
+
+        </h:form>
+    </h:body>
+</html>
+
+
+
+
+

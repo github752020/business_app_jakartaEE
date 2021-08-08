@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+    Project     : ED-Secure
+
+    Document    : retryLogin
+    Created on  : Mar 24, 2017
+    Purpose     : allow a user to login
+    Origin      : Adapted from EX-Login-JSF project
+    Author      : elau
+
+    Modified on : April 5, 2020
+    Purpose     : Make it work on Apache NetBeans 11.2 and GF 5.1.0
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Bonjour Flour Mill - Login Page</title>
+    </h:head>
+
+    <h:body>
+    <h1>
+        Bonjour Flour Mill
+    </h1>
+
+    <h2>
+        Customer Order Management System
+    </h2>
+
+    <h2>
+        Login Page
+    </h2>
+
+    <!-- form method="post" action="j_security_check?/ED-Secure-war/faces/protected/mainmenu.xhtml" -->
+    <form method="post" action="j_security_check">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <h:outputLabel for="j_username" value="Username"/>
+                    </td>
+                    <td>
+                        <h:inputText id="j_username" autocomplete="off" size="20"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h:outputLabel for="j_password" value="Password"/>
+                    </td>
+                    <td>
+                        <h:inputSecret id="j_password" autocomplete="off" size="20"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <p></p>
+        <h:form>
+            <h:commandButton type="submit" value="Login"/>
+            &nbsp;
+            <h:commandButton type="reset" value="Reset"/>
+        </h:form>
+    </form>
+    </h:body>
+</html>
+

@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+    Project     : ED-Secure
+
+    Document    : changeEmployeeDetails
+    Created on  : Mar 24, 2017
+    Purpose     : allow a user to change an employee's detail (except password) to the database
+    Author      : elau
+
+    Modified on : April 5, 2020
+    Purpose     : Make it work on Apache NetBeans 11.2 and GF 5.1.0
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:event listener="#{myLoginCDIBean.isActive}" type="preRenderView" />
+    <h:head>
+        <title>Change Employee's Details</title>
+    </h:head>
+    <h:body>
+
+        <h2>Change Employee Details Page</h2>
+
+        <h3>Please update the details of employee whose employee id is
+            <h:outputText value="#{emsEmployeeCDIBean.empid}"/>
+        </h3>
+
+        <p></p>
+
+        <h:form>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Employee Id:"/>
+                        </td>
+                        <td>
+                            <h:outputText value="#{emsEmployeeCDIBean.empid}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Name:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="Name" id="name"
+                                         maxlength="25"
+                                         required="true" 
+                                         requiredMessage="Name must not be blank"
+                                         value="#{emsEmployeeCDIBean.name}"/>
+                        </td>
+                        <td>
+                            <h:message for="name" style="color:red"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Email:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="Email" maxlength="30" 
+                                         required="false"
+                                         value="#{emsEmployeeCDIBean.email}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Phone:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="Phone" maxlength="10"
+                                         required="false"
+                                         value="#{emsEmployeeCDIBean.phone}"/>     
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Address:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="Address" maxlength="30" 
+                                         required="false"
+                                         value="#{emsEmployeeCDIBean.address}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Security Question:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="Security Question" maxlength="30" 
+                                         required="false"
+                                         value="#{emsEmployeeCDIBean.secqn}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Security Answer:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="Security Answer" maxlength="30" 
+                                         required="false"
+                                         value="#{emsEmployeeCDIBean.secans}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Bank BSB Id:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="Bsbid" 
+                                         required="false" maxlength="6" 
+                                         value="#{emsEmployeeCDIBean.bsbid}"/>
+                        </td>
+                    </tr>                       
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Bank Account No:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="Accid" 
+                                         required="false" maxlength="10" 
+                                         value="#{emsEmployeeCDIBean.accid}"/>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+            <p></p>
+
+            <h:commandButton id="submit" value="Submit" 
+                             action="#{emsEmployeeCDIBean.changeMyEmployee()}"/>
+
+        </h:form>
+    </h:body>
+</html>
+
+
+
+
+

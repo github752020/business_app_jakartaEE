@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Bonjour Flour Mill - Main Menu</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="../style.css" type="text/css"/>
+    </h:head>
+    <h:body>
+
+        <h1>
+            <h:outputText value="Bonjour Flour Mill"/>
+        </h1>
+
+        <h2>
+            <h:outputText value="Order Management System"/>
+        </h2>
+
+        <h2>
+            <h:outputText value="Main Menu"/>
+        </h2>
+
+        <h2>
+            <h:outputText value="Hello, #{request.remoteUser}"/>
+
+        </h2>
+
+        <!--f:view-->
+            <h:form>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h:outputLabel value="Flour Quantity in KG:"/>
+                            </td>
+                            <td>
+                                <h:inputText title="quantity" id="quantity"
+                                             required="true" 
+                                             requiredMessage="Quantity must not be blank"
+                                             maxlength="6" 
+                                             value="#{allorderCDIBean.quantity}">
+                                    <f:validateDoubleRange minimum = "2" maximum = "1000" />
+                                </h:inputText>
+                            </td>
+                            <td>
+                                <h:commandButton id="submit" value="Create New Order" 
+                             action="#{allorderCDIBean.addOrder()}"/>
+                            </td>
+                            <td>
+                                <h:message for="quantity" style="color:red"/>
+                                <!--input type="text" name="j_username" value="#{allorderCDIBean.cusid}"/-->
+                            </td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </h:form>
+            
+            <h:dataTable
+                    value="#{allorderCDIBean.myOrderList}" var="item"          
+                    styleClass="catalogTable"
+                    headerClass="catalogTableHeader"
+                    rowClasses="catalogTableOddRow,catalogTableEvenRow"
+                    cellpadding="10">
+                    <h:column>
+                        <f:facet name="header">Order ID</f:facet>
+                        <h:outputText value="#{item.orid}" />        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Order Date</f:facet>
+                        <h:outputText value="#{item.ordate}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Delivery Date</f:facet>
+                        <h:outputText value="#{item.dedate}"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Quantity</f:facet>
+                        <h:outputText value="#{item.quantity}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Total</f:facet>
+                        $<h:outputText value="#{item.total}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Paid</f:facet>
+                        <h:outputText value="#{item.paid}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Fulfilled</f:facet>
+                        <h:outputText value="#{item.delivered}"/>
+                    </h:column>
+                    <!-- comment out - first part | remove the entire line-->
+
+                </h:dataTable>
+        <p></p>    
+                
+            <h:form>
+
+                Click <h:commandButton value="Logout" action="#{myLoginCDIBean.logoutResult()}"/>     
+            </h:form>
+        <!--/f:view-->
+
+    </h:body>
+</html>
+

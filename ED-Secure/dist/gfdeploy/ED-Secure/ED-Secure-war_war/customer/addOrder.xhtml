@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <title>Add Order</title>
+    </h:head>
+    <h:body>
+
+        <h2>Please validate order details and enter the details of your payment.</h2>
+        <h2>Our delivery time is after 8am the next day.</h2>
+
+        <h:form>
+
+            <table>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Flour Unit Price per kg:"/>
+                        </td>
+                        <td>
+                            <h:outputText title="uprice" id="uprice"
+                                          value="#{allorderCDIBean.uprice}"/>
+                        </td>
+                        <td>
+                            <h:message for="uprice" style="color:red"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Quantity:"/>
+                        </td>
+                        <td>
+                            <h:outputText title="Quantity" id="quantity"
+                                          value="#{allorderCDIBean.quantity}"/>
+                        </td>
+                        <td>
+                            <h:message for="quantity" style="color:red"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Total:"/>
+                        </td>
+                        <td>
+                            <h:outputText title="total" id="total"
+                                          value="#{allorderCDIBean.total}"/>
+                        </td>
+                        <td>
+                            <h:message for="total" style="color:red"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Credit Card Number:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="ccn" id="ccn"
+                                         maxlength="20"
+                                         required="true" 
+                                         requiredMessage="Card number must not be blank"
+                                         value="#{allorderCDIBean.ccn}">
+                            <f:validateRegex pattern = "^4[0-9]{12}(?:[0-9]{3})?$" />
+                            </h:inputText>
+                        </td>
+                        <td>
+                            <h:message for="ccn" style="color:red"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Expiration Date:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="exp" id="exp"
+                                         maxlength="5"
+                                         required="true" 
+                                         requiredMessage="Expiration date must not be blank"
+                                         value="#{allorderCDIBean.exp}">
+                            <f:validateRegex pattern = "^(0[1-9]|1[0-2])\/?([0-9]{2})$" />
+                            </h:inputText>
+                        </td>
+                        <td>
+                            <h:message for="exp" style="color:red"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="CVV:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="cvv" id="cvv"
+                                         maxlength="4"
+                                         required="true" 
+                                         requiredMessage="CVV must not be blank"
+                                         value="#{allorderCDIBean.cvv}">
+                            <f:validateRegex pattern = "^[0-9]{3,4}$" />
+                            </h:inputText>
+                        </td>
+                        <td>
+                            <h:message for="cvv" style="color:red"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p></p>
+
+            <h:commandButton id="submit" value="Submit" 
+                             action="#{allorderCDIBean.payOrder()}"/>
+
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar version="3.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/ejb-jar_3_2.xsd">
+    <display-name>ED-Secure-ejb</display-name>
+    <enterprise-beans>
+        <session>
+            <ejb-name>EmsEmployeeFacade</ejb-name>
+            <local>session.EmsEmployeeFacadeLocal</local>
+            <ejb-class>session.EmsEmployeeFacade</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
+            <ejb-name>AllorderFacade</ejb-name>
+            <local>session.AllorderFacadeLocal</local>
+            <ejb-class>session.AllorderFacade</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        
+        <session>
+            <ejb-name>AllorderManagement</ejb-name>
+            <remote>session.AllorderManagementRemote</remote>
+            <ejb-class>session.AllorderManagement</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
+            <ejb-name>EmsEmployeeManagement</ejb-name>
+            <remote>session.EmsEmployeeManagementRemote</remote>
+            <ejb-class>session.EmsEmployeeManagement</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
+            <ejb-name>CustomerFacade</ejb-name>
+            <local>session.CustomerFacadeLocal</local>
+            <ejb-class>session.CustomerFacade</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        
+        <session>
+            <ejb-name>CustomerManagement</ejb-name>
+            <remote>session.CustomerManagementRemote</remote>
+            <ejb-class>session.CustomerManagement</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+    </enterprise-beans>
+</ejb-jar>
